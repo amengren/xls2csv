@@ -6,6 +6,11 @@ import xdrlib,xlrd
 reload(sys)
 sys.setdefaultencoding("utf-8")
 
+#分割符
+C_SPACE = ","
+#结束符
+C_END = "\n"
+
 #获取脚本文件的当前路径
 def cur_file_dir():
     path = os.path.realpath(sys.path[0])
@@ -94,9 +99,9 @@ def savaToCSV(_file, _list, _path):
             else:# elif isinstance(v, str):
                 vstr = v
             if i > 0:
-                content = content + ","
+                content = content + C_SPACE
             content = content + vstr
-        content = content + "\r\n"
+        content = content + C_END
 
     #生成文件后缀
     fname = os.path.splitext(_file)
